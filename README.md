@@ -18,6 +18,9 @@ Latest Xray Core v1.7.3
   1. Your SSL/TLS encryption mode is Full
   2. Enable SSL/TLS Recommender ✅
   3. Edge Certificates > Disable Always Use HTTPS (off)
+  4. GRPC : ON
+  5. UNDER ATTACK MODE : OFF
+  6. WEBSOCKET : ON
  
   
   ## ⚠️   Register IP ⚠️
