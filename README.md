@@ -2,6 +2,8 @@
 <h2 align="center">
 <hr>
 Autoscript SSH XRAYS Websocket Multiport (BETA)
+
+Latest Xray Core v1.7.3
 <h2><hr>
   
 <h2 align="center"> ♦️Supported Linux Distribution♦️</h2>
@@ -12,7 +14,7 @@ Autoscript SSH XRAYS Websocket Multiport (BETA)
 ## ⚠️ PLEASE README ⚠️
 
 
- SILA PASTIKAN SETTING DOMAIN DI CLOUDFLARE ANDA SEPERTI DIBAWAH (SSL/TLS SETTINGS) <br>
+ PLEASE MAKE SURE YOUR DOMAIN SETTINGS IN YOUR CLOUDFLARE AS BELOW (SSL/TLS SETTINGS) <br>
   1. Your SSL/TLS encryption mode is Full
   2. Enable SSL/TLS Recommender ✅
   3. Edge Certificates > Disable Always Use HTTPS (off)
