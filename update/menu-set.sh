@@ -280,7 +280,7 @@ echo -e " $COLOR1│$NC   ${COLOR1}[02]${NC} • SET BANNER        ${COLOR1}[06]
 echo -e " $COLOR1│$NC   ${COLOR1}[03]${NC} • BANDWITH USAGE    ${COLOR1}[07]${NC} • AUTO REBOOT"
 echo -e " $COLOR1│$NC   ${COLOR1}[04]${NC} • ANTI TORRENT $sts  ${COLOR1}[08]${NC} • SPEEDTEST"
 echo -e " $COLOR1│$NC"
-echo -e " $COLOR1│$NC   ${COLOR1}[09]${NC} • TASK MANAGER      ${COLOR1}[10]${NC} • XRAY CORE VERSION"
+echo -e " $COLOR1│$NC   ${COLOR1}[09]${NC} • TASK MANAGER      ${COLOR1}[10]${NC} • XRAY VERSION"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1│$NC   $COLOR1[00]$NC • GO BACK"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
