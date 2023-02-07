@@ -59,18 +59,15 @@ apt update -y && apt upgrade -y && apt dist-upgrade -y && reboot
   
   ```html
 apt-get update && apt-get upgrade -y && apt dist-upgrade -y && update-grub && reboot
- ```
-
-♦️ Installation Link<br>
-
-  ```apt --fix-missing update && apt update && apt upgrade -y && apt install -y wget screen && wget -q https://raw.githubusercontent.com/NevermoreSSH/Syna/main/setup.sh && chmod +x setup.sh && screen -S setup ./setup.sh
 ```
-♦️ Custom SSH Websocket Banner (if you wanted)<br>
+
+♦️ Installation Link (Recommended Debian 10) <br>
 
   ```html
-cd /etc/
-nano issue.net
+apt --fix-missing update && apt update && apt upgrade -y && apt install -y wget screen && wget -q https://raw.githubusercontent.com/NevermoreSSH/Syna/main/setup.sh && chmod +x setup.sh && screen -S setup ./setup.sh
 ```
+
+
 
 Menu & Port:
 
