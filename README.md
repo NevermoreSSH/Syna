@@ -74,6 +74,6 @@ nano issue.net
 
 Menu & Port:
 
-<img src="https://github.com/NevermoreSSH/Syna/tree/main/image.png" width="900" title="Autoscript-Lite">
+<img src="https://github.com/NevermoreSSH/Syna/blob/main/image.png" width="900" title="Autoscript-Lite">
 </p>
 
