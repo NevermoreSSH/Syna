@@ -1,10 +1,7 @@
 #!/bin/bash
-# =========================================
-# Quick Setup | Script Setup Manager
-# Edition : Stable Edition V1.0
-# Auther  : NevermoreSSH
-# (C) Copyright 2022
-# =========================================
+# Script By NevermoreSSH
+# 2022 SLOWDNS
+# ===============================================
 wget https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/slhostdns.sh && chmod +x slhostdns.sh && ./slhostdns.sh
 nameserver=$(cat /root/nsdomain)
 apt update -y
