@@ -1,96 +1,55 @@
 #!/bin/bash
-# Slowdns Instalation by Jrtunnel 19-09-2022
-# ==========================================
-
-clear
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
-clear
-red='\e[1;31m'
-green='\e[0;32m'
-yell='\e[1;33m'
-NC='\e[0m'
-echo -e " [ ${green}INFO${NC} ] Installing SSH Slow DNS "
-echo "Progress..." | lolcat
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc https://raw.githubusercontent.com/NevermoreSSH/Syna/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
-nameserver=$(cat /home/nsdomain)
-echo -e "[ ${green}INFO${NC} ] Download File... "
-echo "Progress..." | lolcat
-# SSH SlowDNS
-echo -e " [ ${green}INFO${NC} ] Successfully.. "
-wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/NevermoreSSH/Syna/main/slowdnss/sshd_config
-systemctl restart sshd
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Tambahan... "
+# =========================================
+# Quick Setup | Script Setup Manager
+# Edition : Stable Edition V1.0
+# Auther  : NevermoreSSH
+# (C) Copyright 2022
+# =========================================
+wget https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/slhostdns.sh && chmod +x slhostdns.sh && ./slhostdns.sh
+nameserver=$(cat /root/nsdomain)
+apt update -y
+apt install -y python3 python3-dnslib net-tools
+apt install ncurses-utils -y
+apt install dnsutils -y
+apt install golang -y
+apt install git -y
+apt install curl -y
+apt install wget -y
+apt install ncurses-utils -y
 apt install screen -y
 apt install cron -y
 apt install iptables -y
+apt install -y git screen whois dropbear wget
+apt install -y pwgen python php jq curl
+apt install -y sudo gnutls-bin
+apt install -y mlocate dh-make libaudit-dev build-essential
+apt install -y dos2unix debconf-utils
 service cron reload
 service cron restart
-service iptables reload
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Downloading files... "
-cd /usr/local
-wget -qc https://golang.org/dl/go1.16.2.linux-amd64.tar.gz
-tar xvf go1.16.2.linux-amd64.tar.gz
-export GOROOT=/usr/local/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-cd /root
-apt install git -y
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Downloading files... "
-git clone https://www.bamsoftware.com/git/dnstt.git jrtunnel
-mv /root/jrtunnel /root/slowdns
-rm -rf jrtunnel
-cd /root/slowdns/dnstt-server
-go build
-echo -e "[ ${green}INFO${NC} ] Install Key... "
-sleep 1
-./dnstt-server -gen-key -privkey-file /root/slowdns/dnstt-server/server.key -pubkey-file /root/slowdns/dnstt-server/server.pub
-echo -e "[ ${green}INFO${NC} ] Successfully... "
-sleep 1
-mkdir -m 777 /root/.dns
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Waiting... "
-mv /root/slowdns/dnstt-server/server.key /root/.dns/server.key
-mv /root/slowdns/dnstt-server/server.pub /root/.dns/server.pub
+cd
+echo "Port 3369" >> /etc/ssh/sshd_config
+echo "Port 2269" >> /etc/ssh/sshd_config
+sed -i 's/#AllowTcpForwarding yes/AllowTcpForwarding yes/g' /etc/ssh/sshd_config
 rm -rf /etc/slowdns
 mkdir -m 777 /etc/slowdns
-echo -e "[ ${green}INFO${NC} ] Successfully... "
-sleep 1
-cd /root
-rm -rf slowdns
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/NevermoreSSH/Syna/main/slowdnss/sldns-server"
-wget -qc -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/NevermoreSSH/Syna/main/slowdnss/sldns-client"
-sleep 1
+wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/server.key"
+wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/server.pub"
+wget -q -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/sldns-server"
+wget -q -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/sldns-client"
+cd
+chmod +x /etc/slowdns/server.key
+chmod +x /etc/slowdns/server.pub
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd
-echo -e "[ ${green}INFO${NC} ] Successfully... "
-sleep 1
-#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/NevermoreSSH/Syna/main/slowdnss/client-sldns.service"
-#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/NevermoreSSH/Syna/main/slowdnss/server-sldns.service"
+#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/client-sldns.service"
+#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/NevermoreSSH/hopp/main/slowdns/server-sldns.service"
 cd
-sleep 1
-echo -e "[ ${green}INFO${NC} ] System Prosess... "
-sleep 2
-install client-sldns.service
+#install client-sldns.service
 cat > /etc/systemd/system/client-sldns.service << END
 [Unit]
-Description=Client SlowDNS By Jrtunnel Mwoi
-Documentation=t.me/
+Description=Client SlowDNS By NevermoreSSH
+Documentation=https://nekopoi.care
 After=network.target nss-lookup.target
 
 [Service]
@@ -99,18 +58,18 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /root/.dns/server.pub $nameserver 127.0.0.1:3369
+ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /etc/slowdns/server.pub $nameserver 127.0.0.1:3369
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
 END
 cd
-install server-sldns.service
+#install server-sldns.service
 cat > /etc/systemd/system/server-sldns.service << END
 [Unit]
-Description=Server SlowDNS By Jrtunnel Mwoi
-Documentation=t.me/ajikcobain 
+Description=Server SlowDNS By NevermoreSSH
+Documentation=https://nekopoi.care
 After=network.target nss-lookup.target
 
 [Service]
@@ -119,26 +78,17 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /root/.dns/server.key $nameserver 127.0.0.1:2269
+ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /etc/slowdns/server.key $nameserver 127.0.0.1:2269
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
 END
 cd
-echo -e "[ ${green}INFO${NC} ] Successfully... "
 chmod +x /etc/systemd/system/client-sldns.service
 chmod +x /etc/systemd/system/server-sldns.service
 pkill sldns-server
 pkill sldns-client
-
-iptables -I INPUT -p udp --dport 5300 -j ACCEPT
-iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
-iptables-save > /etc/iptables.up.rules
-iptables-restore -t < /etc/iptables.up.rules
-netfilter-persistent save
-netfilter-persistent reload
-
 systemctl daemon-reload
 systemctl stop client-sldns
 systemctl stop server-sldns
@@ -148,7 +98,4 @@ systemctl start client-sldns
 systemctl start server-sldns
 systemctl restart client-sldns
 systemctl restart server-sldns
-cd
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Downloading files Success "
 cd
