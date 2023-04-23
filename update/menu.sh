@@ -248,6 +248,8 @@ case $opt in
 13) clear ; $ressee ;;
 14) clear ; $bottt ;;
 100) clear ; $up2u ;;
-00 | 0) clear ; menu ;;
-*) clear ; menu ;;
+*)
+clear
+menu
+;;
 esac
